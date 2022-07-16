@@ -26,18 +26,6 @@ pipeline {
             }
         }
 
-        stage ('CheckStyle Analysis') {
-            steps {
-                sh 'mvn --batch-mode -V -U -e checkstyle:checkstyle'
-            }
-        }
-
-        stage ('Spotbugs Analysis') {
-            steps {
-                sh 'mvn --batch-mode -V -U -e com.github.spotbugs:spotbugs-maven-plugin:4.6.0.0:spotbugs'
-            }
-        }
-
         stage('Sonarqube Analysis') {
             steps {
                 withSonarQubeEnv('SonarCloudOne'){
@@ -63,8 +51,6 @@ pipeline {
                 exclusionPattern : 'src/test*'
             ])
             recordIssues enabledForFailure: true, tools: [mavenConsole(), java(), javaDoc()]
-            recordIssues enabledForFailure: true, tool: checkStyle(pattern: '**/target/checkstyle-result.xml')
-            recordIssues enabledForFailure: true, tool: spotBugs(pattern: '**/target/spotbugsXml.xml')
         }
     }
 }
