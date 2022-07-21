@@ -40,7 +40,7 @@ pipeline {
 
         stage('Sonarqube Analysis') {
             steps {
-                withSonarQubeEnv('SonarCloudOne'){
+                withSonarQubeEnv('SonarOne'){
                    sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=zanzanYL_zanzanYL'
 
                 }
