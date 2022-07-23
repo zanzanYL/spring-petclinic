@@ -26,22 +26,13 @@ pipeline {
             }
         }
 
-        stage ('CheckStyle Analysis') {
-            steps {
-                sh 'mvn --batch-mode -V -U -e checkstyle:checkstyle'
-            }
-        }
-
-        stage ('Spotbugs Analysis') {
-            steps {
-                sh 'mvn --batch-mode -V -U -e com.github.spotbugs:spotbugs-maven-plugin:4.6.0.0:spotbugs'
-            }
-        }
-
         stage('Sonarqube Analysis') {
             steps {
                 withSonarQubeEnv('SonarOne'){
-                   sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.login=ca4d334874948d391bfa6b5e65525aae301311ee -Dsonar.projectKey=zanzanYL_zanzanYL'
+                   sh 'mvn sonar:sonar \
+                         -Dsonar.projectKey=zanzanYL_zanzanYL \
+                         -Dsonar.host.url=http://localhost:9000 \
+                         -Dsonar.login=ca4d334874948d391bfa6b5e65525aae301311ee'
 
                 }
             }
@@ -63,8 +54,6 @@ pipeline {
                 exclusionPattern : 'src/test*'
             ])
             recordIssues enabledForFailure: true, tools: [mavenConsole(), java(), javaDoc()]
-            recordIssues enabledForFailure: true, tool: checkStyle(pattern: '**/target/checkstyle-result.xml')
-            recordIssues enabledForFailure: true, tool: spotBugs(pattern: '**/target/spotbugsXml.xml')
         }
     }
 }

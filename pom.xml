@@ -27,9 +27,7 @@
     <nohttp-checkstyle.version>0.0.10</nohttp-checkstyle.version>
     <spring-format.version>0.0.31</spring-format.version>
 
-    <!-- CI/CD -->
-    <sonar.organization>zanzanyl</sonar.organization>
-    <sonar.host.url>http://localhost:9000</sonar.host.url>
+    <!-- SonarQube -->
     <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
     <sonar.language>java</sonar.language>
     <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
@@ -37,7 +35,6 @@
     <sonar.tests>src/test</sonar.tests>
     <sonar.java.binaries>target/classes</sonar.java.binaries>
     <sonar.jacoco.reportPath>${basedir}/target/jacoco.exec</sonar.jacoco.reportPath>
-
   </properties>
 
   <dependencies>
@@ -142,17 +139,6 @@
       <groupId>org.jacoco</groupId>
       <artifactId>jacoco-maven-plugin</artifactId>
       <version>0.8.7</version>
-    </dependency>
-    <dependency>
-      <groupId>com.github.spotbugs</groupId>
-      <artifactId>spotbugs-maven-plugin</artifactId>
-      <version>4.5.0.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-checkstyle-plugin</artifactId>
-      <version>3.1.2</version>
-      <type>maven-plugin</type>
     </dependency>
   </dependencies>
 
@@ -352,23 +338,6 @@
           <append>true</append>
           <destFile>${sonar.jacoco.reportPath}</destFile>
         </configuration>
-      </plugin>
-      <plugin>
-        <groupId>com.github.spotbugs</groupId>
-        <artifactId>spotbugs-maven-plugin</artifactId>
-        <version>4.5.0.0</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>3.1.2</version>
-        <reportSets>
-          <reportSet>
-            <reports>
-              <report>checkstyle</report>
-            </reports>
-          </reportSet>
-        </reportSets>
       </plugin>
     </plugins>
   </reporting>
