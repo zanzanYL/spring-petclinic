@@ -41,7 +41,7 @@ pipeline {
         stage('Sonarqube Analysis') {
             steps {
                 withSonarQubeEnv('SonarOne'){
-                   sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.login=admin -Dsonar.password=liyuan1994 -Dsonar.projectKey=zanzanYL_zanzanYL'
+                   sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.login=ca4d334874948d391bfa6b5e65525aae301311ee -Dsonar.projectKey=zanzanYL_zanzanYL'
 
                 }
             }
