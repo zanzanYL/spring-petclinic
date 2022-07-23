@@ -5,6 +5,9 @@ pipeline {
             args '-v /root/.m2:/root/.m2'
         }
     }
+    tools {
+        nodejs 'nodejs'
+    }
     environment {
         SONAR_TOKEN = 'd000273d956d66f878c13535637bda8743ae51d6'
     }
@@ -33,7 +36,8 @@ pipeline {
                          -Dsonar.projectKey=zanzanYL_zanzanYL \
                          -Dsonar.host.url=http://172.19.0.2:9000 \
                          -Dsonar.login=d000273d956d66f878c13535637bda8743ae51d6 \
-                         -Dsonar.nodejs.executable=/usr/bin/node'
+                         -Dsonar.nodejs.executable=/usr/bin/node \
+                         sonar.css.node=/usr/bin/node'
 
                 }
             }
