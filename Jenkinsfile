@@ -6,7 +6,7 @@ pipeline {
         }
     }
     environment {
-        SONAR_TOKEN = '5ced6fabc0d7621798bf88144afe884b464217c7'
+        SONAR_TOKEN = 'c85de95f54d674b3e2ab4bd51b2b6b297b3df191'
     }
     stages {
         stage('Build') {
@@ -32,7 +32,7 @@ pipeline {
                    sh 'mvn sonar:sonar \
                          -Dsonar.projectKey=zanzanYL_zanzanYL \
                          -Dsonar.host.url=http://172.22.0.2:9000 \
-                         -Dsonar.login=ca4d334874948d391bfa6b5e65525aae301311ee'
+                         -Dsonar.login=c85de95f54d674b3e2ab4bd51b2b6b297b3df191'
 
                 }
             }
