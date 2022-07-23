@@ -31,7 +31,7 @@ pipeline {
                 withSonarQubeEnv('SonarOne'){
                    sh 'mvn sonar:sonar \
                          -Dsonar.projectKey=zanzanYL_zanzanYL \
-                         -Dsonar.host.url=http://localhost:9000 \
+                         -Dsonar.host.url=http://172.22.0.2:9000 \
                          -Dsonar.login=ca4d334874948d391bfa6b5e65525aae301311ee'
 
                 }
