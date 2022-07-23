@@ -33,7 +33,7 @@ pipeline {
                          -Dsonar.projectKey=zanzanYL_zanzanYL \
                          -Dsonar.host.url=http://172.19.0.2:9000 \
                          -Dsonar.login=c85de95f54d674b3e2ab4bd51b2b6b297b3df191 \
-                         -Dsonar.nodejs.executable=/usr/bin/node'
+                         -Dsonar.nodejs.executable=/var/jenkins_home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/NodeJS/bin/node'
 
                 }
             }
