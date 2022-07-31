@@ -1,0 +1,18 @@
+# group name of hosts
+[webservers]
+
+# list of hosts
+appserver ansible_host=172.24.0.2 ansible_user=ansadmin ansible_ssh_private_key_file=/home/ansadmin/.ssh/ansible-CN
+docker ansible_host=172.19.0.3
+jenkins ansible_host=172.19.0.4 ansible_user=ansadmin ansible_ssh_private_key_file=/home/ansadmin/.ssh/ansible-CN
+sonarqube ansible_host=172.19.0.2
+
+ansible_CN ansible_connection=local
+
+# sets variables applied to all hosts
+[all:vars]
+# sets Ansible to use Python3 on all managed hosts
+ansible_python_interpreter=/usr/bin/python3pwd
+
+
+

@@ -50,7 +50,7 @@ pipeline {
             steps {
                 script {
                     ansiblePlaybook installation: 'ansible2',
-                    inventory: 'hosts', playbook: 'ansible.yml',
+                    inventory: 'host', playbook: 'ansible.yml',
                     disableHostKeyChecking: true
                     // check below code for IP ssh based deployment
                     // for different Ips

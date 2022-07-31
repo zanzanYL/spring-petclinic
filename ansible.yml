@@ -1,6 +1,13 @@
 ---
-- hosts: webservers
+- hosts: jenkins
   connection: local
   tasks:
+    - name: Copy Jar to Host
+      become: yes
+      shell: docker cp /var/jenkins_home/workspace/target/spring-petclinic-2.7.0-SNAPSHOT.jar
+        root@appserver:/usr/local/tomcat/webapps/
+- hosts: appserver
+  connection: ssh
+  tasks:
     - name: Run jar
-      shell: java -jar target/spring-petclinic-2.7.0-SNAPSHOT.jar
+      shell: java -jar /usr/local/tomcat/webapps/spring-petclinic-2.7.0-SNAPSHOT.jar
