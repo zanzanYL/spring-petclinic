@@ -2,10 +2,10 @@
 [webservers]
 
 # list of hosts
-appserver ansible_host=172.24.0.2 ansible_user=ansadmin ansible_ssh_private_key_file=/var/jenkins_home/.ssh/id_rsa
+appserver ansible_host=172.19.0.4 ansible_user=jenkins ansible_ssh_private_key_file=/var/jenkins_home/.ssh/ansible
 
 #docker ansible_host=172.19.0.3
-#jenkins ansible_host=172.19.0.4
+#jenkins ansible_host=172.19.0.5
 #sonarqube ansible_host=172.19.0.2
 
 id_rsa ansible_connection=local

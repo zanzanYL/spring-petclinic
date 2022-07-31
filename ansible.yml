@@ -1,13 +1,29 @@
 ---
-- hosts: jenkins
-  connection: local
-  tasks:
-    - name: Copy Jar to Host
-      become: yes
-      shell: scp /var/jenkins_home/workspace/target/spring-petclinic-2.7.0-SNAPSHOT.jar
-        jenkins@appserver:/usr/local/tomcat/webapps/
+#- hosts: jenkins
+#  connection: local
+#  tasks:
+#    - name: Build a tomcat server from image
+#       docker_image:
+#         name: pet-clinic
+#         build:
+#           path: /opt/docker
+#           pull: false
+#          source: build
 - hosts: appserver
   connection: ssh
   tasks:
     - name: Run jar
       shell: java -jar /usr/local/tomcat/webapps/spring-petclinic-2.7.0-SNAPSHOT.jar
+#- hosts: appserver
+#  connection: ssh
+#  tasks:
+#    - name: Build an run service from image
+#      docker_container:
+#        name: pet-clinic-server
+#        image: pet-clinic:latest
+#        state: started
+#        recreate: yes
+#        detach: true
+#        ports:
+#          - "8888:8080"
+
