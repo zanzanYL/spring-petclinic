@@ -1,19 +1,14 @@
 ---
-#- hosts: jenkins
-#  connection: local
-#  tasks:
-#    - name: Build a tomcat server from image
-#       docker_image:
-#         name: pet-clinic
-#         build:
-#           path: /opt/docker
-#           pull: false
-#          source: build
+- hosts: jenkins
+  connection: local
+  tasks:
+    - name: Deploy Jar to Server 2
+      shell: 'scp /var/jenkins_home/workspace/spring-petclinic/target/spring-petclinic-2.7.0-SNAPSHOT.jar jenkins@appserver: /home/jenkins/'
 - hosts: appserver
   connection: ssh
   tasks:
     - name: Run jar
-      shell: java -jar /usr/local/tomcat/webapps/spring-petclinic-2.7.0-SNAPSHOT.jar
+      shell: java -jar /home/jenkins/spring-petclinic-2.7.0-SNAPSHOT.jar
 #- hosts: appserver
 #  connection: ssh
 #  tasks:

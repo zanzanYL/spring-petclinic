@@ -46,7 +46,7 @@ pipeline {
                 waitForQualityGate abortPipeline: true
             }
         }
-        stage('Deploy Run Petclinic'){
+        stage('Deploy And Run Petclinic'){
             steps {
                 script {
                     ansiblePlaybook installation: 'ansible2',
