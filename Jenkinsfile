@@ -49,7 +49,9 @@ pipeline {
         stage('Deploy And Run App'){
             steps {
                 script {
-                    sh 'ansible-playbook -i inventory playbook.yml'
+                    ansiblePlaybook installation: 'ansible2',
+                    inventory: 'inventory', playbook: 'playbook.yml',
+                    disableHostKeyChecking: true
                 }
             }
         }
