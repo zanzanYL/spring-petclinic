@@ -1,0 +1,14 @@
+---
+- hosts: appserver
+  connection: ssh
+  tasks:
+    - name: Deploy Jar to App Server
+      ansible.builtin.copy:
+        src: /var/jenkins_home/workspace/spring-petclinic/target/spring-petclinic-2.7.0-SNAPSHOT.jar
+        dest: /home/jenkins/spring-petclinic-2.7.0-SNAPSHOT.jar
+
+- hosts: appserver
+  connection: ssh
+  tasks:
+    - name: Run jar
+      shell: fuser -k 8080/tcp; nohup java -jar /home/jenkins/spring-petclinic-2.7.0-SNAPSHOT.jar &

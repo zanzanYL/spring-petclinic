@@ -46,26 +46,10 @@ pipeline {
                 waitForQualityGate abortPipeline: true
             }
         }
-        stage('Deploy And Run Petclinic'){
+        stage('Deploy And Run App'){
             steps {
                 script {
-                    ansiblePlaybook installation: 'ansible2',
-                    inventory: 'host', playbook: 'ansible.yml',
-                    disableHostKeyChecking: true
-                    // check below code for IP ssh based deployment
-                    // for different Ips
-                    // IP address and role goes in dev.inv
-                    /**[webservers]
-                    IP-address ansible_user=ec2-user
-                    **/
-                    // command changes to include crendeitalsId
-                    // private-key values if your jenkins configured key to connect to server IP
-                    // check the screenshot you have
-                    // ansiblePlaybook crendeitalsId: 'private-key',
-                    // installation: 'ansible2',
-                    // inventory: 'hosts',
-                    // playbook: 'ansible.yml',
-                    // disableHostKeyChecking: true
+                    sh 'ansible-playbook -i inventory playbook.yml'
                 }
             }
         }

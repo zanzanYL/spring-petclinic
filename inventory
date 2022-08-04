@@ -1,0 +1,10 @@
+# group name of hosts
+[webservers]
+
+# list of hosts
+appserver ansible_host=172.19.0.5 ansible_user=jenkins ansible_password=jenkins ansible_ssh_private_key_file=/var/jenkins_home/.ssh/ansible
+
+# sets variables applied to all hosts
+[all:vars]
+# sets Ansible to use Python3 on all managed hosts
+ansible_python_interpreter=/usr/bin/python3
