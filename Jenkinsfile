@@ -9,11 +9,11 @@ pipeline {
         SONAR_TOKEN = 'd000273d956d66f878c13535637bda8743ae51d6'
     }
     stages {
-//         stage('List') {
-//                 steps {
-//                     sh 'echo $PATH; ls /usr/bin'
-//                 }
-//         }
+        stage('List') {
+                steps {
+                    sh 'echo $PATH; ls /usr/bin'
+                }
+        }
 //         stage('Build') {
 //             steps {
 //                 sh 'echo $PATH; ls /usr/bin; mvn -B -DskipTests clean package'
