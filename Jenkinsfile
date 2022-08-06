@@ -49,7 +49,7 @@ pipeline {
 //                 ansiblePlaybook installation: 'ansible',
 //                                 inventory: 'inventory', playbook: 'playbook.yml',
 //                                 disableHostKeyChecking: true
-                    sh 'ls -ltr /usr/local/bin; ls -ltr /usr/local/sbin; ls -ltr /usr/sbin; /usr/bin/ansible -i inventory playbook.yml'
+                    sh 'find . -name "ansible*"; /usr/bin/ansible -i inventory playbook.yml'
                 }
             }
 
