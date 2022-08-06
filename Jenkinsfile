@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('List') {
                 steps {
-                    sh 'which ansible; echo $PATH; ls /usr/bin'
+                    sh 'echo $PATH; ls /usr/bin'
                 }
         }
 //         stage('Build') {
