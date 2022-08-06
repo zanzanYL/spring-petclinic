@@ -49,7 +49,7 @@ pipeline {
 //                 ansiblePlaybook installation: 'ansible',
 //                                 inventory: 'inventory', playbook: 'playbook.yml',
 //                                 disableHostKeyChecking: true
-                    sh 'whoami; env | sort; /usr/bin/ansible -i inventory playbook.yml'
+                    sh 'env | sort; export PATH=$PATH:/usr/bin/; ansible -i inventory playbook.yml'
                 }
             }
 
