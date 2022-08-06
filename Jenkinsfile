@@ -52,7 +52,7 @@ pipeline {
 //                                 inventory: 'inventory', playbook: 'playbook.yml',
 //                                 disableHostKeyChecking: true
                     echo "PATH is: $ANS_HOME"
-                    sh "whoami; ls -ltr /usr/local/bin; pwd; hostname -I; ls -ltr /var/jenkins_home/workspace/; /var/jenkins_home/workspace/ansible -i inventory playbook.yml"
+                    sh "ls -ltr /usr/local/bin; pwd; hostname -I; ls -ltr /var/jenkins_home/workspace/; /var/jenkins_home/workspace/ansible -i inventory playbook.yml"
                 }
             }
 
