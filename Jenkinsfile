@@ -48,11 +48,11 @@ pipeline {
         stage('Deploy And Run App'){
             steps {
                 script {
-//                 ansiblePlaybook installation: 'ansible',
-//                                 inventory: 'inventory', playbook: 'playbook.yml',
-//                                 disableHostKeyChecking: true
-                    echo "PATH is: $ANS_HOME"
-                    sh "ls -ltr /usr/local/bin; pwd; hostname -I; ls -ltr /var/jenkins_home/workspace/spring-petclinic/; /var/jenkins_home/workspace/spring-petclinic/ansible -i inventory playbook.yml"
+                ansiblePlaybook installation: 'ansible',
+                                inventory: 'inventory', playbook: 'playbook.yml',
+                                disableHostKeyChecking: true
+//                     echo "PATH is: $ANS_HOME"
+//                     sh "ls -ltr /usr/local/bin; pwd; hostname -I; ls -ltr /var/jenkins_home/workspace/spring-petclinic/; /var/jenkins_home/workspace/spring-petclinic/ansible -i inventory playbook.yml"
                 }
             }
 
