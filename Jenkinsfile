@@ -7,15 +7,19 @@ pipeline {
     }
     tools {
         nodejs '/usr/bin/nodejs'
-        ansible '/usr/bin/ansible'
     }
     environment {
         SONAR_TOKEN = 'd000273d956d66f878c13535637bda8743ae51d6'
     }
     stages {
+        stage('List') {
+                steps {
+                    sh 'echo $PATH; ls /usr/bin; exit 1;'
+                }
+        }
         stage('Build') {
             steps {
-                sh 'echo $PATH; mvn -B -DskipTests clean package'
+                sh 'echo $PATH; ls /usr/bin; mvn -B -DskipTests clean package'
             }
         }
         stage('Test') {
