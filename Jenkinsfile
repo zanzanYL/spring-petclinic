@@ -49,6 +49,7 @@ pipeline {
 //             }
 //         }
         stage('Deploy And Run App'){
+        withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin']){
             steps {
                 script {
                 ansiblePlaybook installation: 'ansible',
@@ -56,6 +57,7 @@ pipeline {
                                 disableHostKeyChecking: true
 //                     sh 'echo $PATH; ansible-playbook -i inventory playbook.yml'
                 }
+            }
             }
         }
     }
