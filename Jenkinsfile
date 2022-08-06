@@ -46,10 +46,10 @@ pipeline {
         stage('Deploy And Run App'){
             steps {
                 script {
-                ansiblePlaybook installation: 'ansible',
-                                inventory: 'inventory', playbook: 'playbook.yml',
-                                disableHostKeyChecking: true
-//                     sh 'whereis ansible; /var/jenkins_home/ansible -i inventory playbook.yml'
+//                 ansiblePlaybook installation: 'ansible',
+//                                 inventory: 'inventory', playbook: 'playbook.yml',
+//                                 disableHostKeyChecking: true
+                    sh 'pwd; ifconfig -a; ansible -i inventory playbook.yml'
                 }
             }
 
