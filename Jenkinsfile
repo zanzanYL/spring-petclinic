@@ -9,6 +9,11 @@ pipeline {
         SONAR_TOKEN = 'd000273d956d66f878c13535637bda8743ae51d6'
     }
     stages {
+        stage('Install Ansible') {
+                    steps {
+                        sh 'apt-get install -y ansible'
+                    }
+            }
         stage('List') {
                 steps {
                     sh 'which ansible; echo $PATH; ls /usr/bin'
