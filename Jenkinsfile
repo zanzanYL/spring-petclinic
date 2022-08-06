@@ -6,7 +6,8 @@ pipeline {
         }
     }
     tools {
-        nodejs 'nodejs'
+        nodejs '/usr/bin/nodejs',
+        ansible '/usr/bin/ansible'
     }
     environment {
         SONAR_TOKEN = 'd000273d956d66f878c13535637bda8743ae51d6'
@@ -49,9 +50,7 @@ pipeline {
         stage('Deploy And Run App'){
             steps {
                 script {
-                    ansiblePlaybook installation: 'ansible2',
-                    inventory: 'inventory', playbook: 'playbook.yml',
-                    disableHostKeyChecking: true
+                    sh 'echo $PATH; ansible-playbook -i inventory playbook.yml'
                 }
             }
         }
