@@ -9,11 +9,6 @@ pipeline {
         SONAR_TOKEN = 'd000273d956d66f878c13535637bda8743ae51d6'
     }
     stages {
-        stage('List') {
-                steps {
-                    sh 'echo $PATH; ls -ltr /usr/bin'
-                }
-        }
 //         stage('Build') {
 //             steps {
 //                 sh 'echo $PATH; ls /usr/bin; mvn -B -DskipTests clean package'
@@ -54,7 +49,7 @@ pipeline {
 //                 ansiblePlaybook installation: 'ansible',
 //                                 inventory: 'inventory', playbook: 'playbook.yml',
 //                                 disableHostKeyChecking: true
-                    sh 'echo $PATH; /usr/bin/ansible -i inventory playbook.yml'
+                    sh 'ls -ltr /usr/local/bin | grep ansible; ls -ltr /usr/local/sbin | grep ansible; ls -ltr /usr/sbin | grep ansible; /usr/bin/ansible -i inventory playbook.yml'
                 }
             }
 
