@@ -51,7 +51,10 @@ pipeline {
         stage('Deploy And Run App'){
             steps {
                 script {
-                    sh 'echo $PATH; ansible-playbook -i inventory playbook.yml'
+                ansiblePlaybook installation: 'ansible',
+                                inventory: 'inventory', playbook: 'playbook.yml',
+                                disableHostKeyChecking: true
+//                     sh 'echo $PATH; ansible-playbook -i inventory playbook.yml'
                 }
             }
         }
