@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('List') {
                 steps {
-                    sh 'echo $PATH; ls /usr/bin; exit 1;'
+                    sh 'echo $PATH; ls /usr/bin'
                 }
         }
         stage('Build') {
