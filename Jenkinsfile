@@ -49,7 +49,7 @@ pipeline {
 //                 ansiblePlaybook installation: 'ansible',
 //                                 inventory: 'inventory', playbook: 'playbook.yml',
 //                                 disableHostKeyChecking: true
-                    sh 'apt-get install -y ansible; /usr/bin/ansible -i inventory playbook.yml'
+                    sh 'whoami; env | sort; /usr/bin/ansible -i inventory playbook.yml'
                 }
             }
 
