@@ -7,7 +7,7 @@ pipeline {
     }
     environment {
         SONAR_TOKEN = 'd000273d956d66f878c13535637bda8743ae51d6'
-        PATH = "/usr/local/bin/ansible:/usr/local/bin/ansible-playbook:$PATH"
+        PATH = "/usr/local/bin/:/usr/local/bin/:$PATH"
         ANS_HOME = tool('ansible')
     }
     stages {
