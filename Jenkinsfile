@@ -49,7 +49,7 @@ pipeline {
 //                 ansiblePlaybook installation: 'ansible',
 //                                 inventory: 'inventory', playbook: 'playbook.yml',
 //                                 disableHostKeyChecking: true
-                    sh 'su - jenkins; sudo apt-get install -y ansible; ansible -i inventory playbook.yml'
+                    sh 'ansible -i inventory playbook.yml'
                 }
             }
 
