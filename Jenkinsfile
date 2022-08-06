@@ -49,7 +49,7 @@ pipeline {
 //                 ansiblePlaybook installation: 'ansible',
 //                                 inventory: 'inventory', playbook: 'playbook.yml',
 //                                 disableHostKeyChecking: true
-                    sh "pwd; hostname -I | awk '{print $1}'; ansible -i inventory playbook.yml"
+                    sh "pwd; hostname -I; ansible -i inventory playbook.yml"
                 }
             }
 
