@@ -6,7 +6,7 @@ pipeline {
         }
     }
     tools {
-        nodejs '/usr/bin/nodejs',
+        nodejs '/usr/bin/nodejs'
         ansible '/usr/bin/ansible'
     }
     environment {
@@ -15,7 +15,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn -B -DskipTests clean package'
+                sh 'echo $PATH; mvn -B -DskipTests clean package'
             }
         }
         stage('Test') {
