@@ -5,9 +5,6 @@ pipeline {
             args '-v /root/.m2:/root/.m2'
         }
     }
-    tools {
-        nodejs '/usr/bin/nodejs'
-    }
     environment {
         SONAR_TOKEN = 'd000273d956d66f878c13535637bda8743ae51d6'
     }
