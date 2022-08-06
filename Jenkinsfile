@@ -49,7 +49,7 @@ pipeline {
 //                 ansiblePlaybook installation: 'ansible',
 //                                 inventory: 'inventory', playbook: 'playbook.yml',
 //                                 disableHostKeyChecking: true
-                    sh '/var/jenkins_home/ansible -i inventory playbook.yml'
+                    sh 'ls -ltr /var/jenkins_home; /var/jenkins_home/ansible -i inventory playbook.yml'
                 }
             }
 
