@@ -49,7 +49,7 @@ pipeline {
 //                 ansiblePlaybook installation: 'ansible',
 //                                 inventory: 'inventory', playbook: 'playbook.yml',
 //                                 disableHostKeyChecking: true
-                    sh 'find . -name "ansible*"; /usr/bin/ansible -i inventory playbook.yml'
+                    sh 'apk add ansible; /usr/bin/ansible -i inventory playbook.yml'
                 }
             }
 
