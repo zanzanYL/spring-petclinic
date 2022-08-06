@@ -7,6 +7,8 @@ pipeline {
     }
     environment {
         SONAR_TOKEN = 'd000273d956d66f878c13535637bda8743ae51d6'
+        PATH = "/usr/local/bin/ansible:/usr/local/bin/ansible-playbook:$PATH"
+        ANS_HOME = tool('ansible')
     }
     stages {
 //         stage('Build') {
@@ -49,6 +51,7 @@ pipeline {
 //                 ansiblePlaybook installation: 'ansible',
 //                                 inventory: 'inventory', playbook: 'playbook.yml',
 //                                 disableHostKeyChecking: true
+                    echo "PATH is: $ANS_HOME"
                     sh "pwd; hostname -I; /var/jenkins_home/workspace/ansible -i inventory playbook.yml"
                 }
             }
